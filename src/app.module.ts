@@ -5,6 +5,7 @@ import { CoffeesModule } from './coffees/coffees.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 import { CoffeeRatingService } from './coffee-rating/coffee-rating.service';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [CoffeesModule, TypeOrmModule.forRoot({
@@ -16,7 +17,7 @@ import { CoffeeRatingService } from './coffee-rating/coffee-rating.service';
     database: 'postgres',
     autoLoadEntities: true,
     synchronize: true
-  }), CoffeeRatingModule],
+  }), CoffeeRatingModule, DatabaseModule],
   controllers: [AppController],
   providers: [AppService, CoffeeRatingService],
 })
