@@ -17,7 +17,7 @@ import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
 import { Event } from 'src/events/entities/event.entity';
 import { COFFEE_BRANDS } from './coffees.constants';
 
-@Injectable({scope: Scope.REQUEST})
+@Injectable()
 export class CoffeesService {
   constructor(
     @InjectRepository(Coffee)
@@ -27,7 +27,6 @@ export class CoffeesService {
     private readonly connection: Connection,
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
   ) {
-    console.log("Coffee service instantiated")
   }
   findAll(paginationQuery: PaginationQueryDto) {
     const { limit, offset } = paginationQuery;
