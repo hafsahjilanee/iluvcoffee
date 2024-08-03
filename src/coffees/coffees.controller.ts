@@ -15,22 +15,26 @@ export class CoffeesController {
     return this.coffeesService.findAll(paginationQuery);
   }
 
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.coffeesService.findOne(id);
   }
 
+  @Public()
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
     this.coffeesService.create(createCoffeeDto);
     return createCoffeeDto;
   }
 
+  @Public()
   @Patch(':id')
   update(@Param('id') id: string, @Body(ValidationPipe) updateCoffeeDto: UpdateCoffeeDto) {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
 
+  @Public()
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.coffeesService.remove(id);
